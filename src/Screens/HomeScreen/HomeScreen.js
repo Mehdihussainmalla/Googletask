@@ -5,13 +5,11 @@ import { useSelector } from 'react-redux';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import navigationStrings from '../../navigation/navigationStrings';
-import colors from '../../styles/colors';
-import { textScale, width } from '../../styles/responsiveSize';
+import { styles } from './style';
 
-// create a component
 const Home = ({ navigation }) => {
     const userData = useSelector(state => state?.userStatus?.userData)
-     const photo = userData?.user?.photoURL;
+    const photo = userData?.user?.photoURL;
     //   console.log(photo,"photo is") 
     return (
         <WrapperContainer>
@@ -23,23 +21,24 @@ const Home = ({ navigation }) => {
                     <View style={{ flex: 0.1 }}>
                         <Image
                             style={styles.imgtxt}
-                            source={ {uri:photo}}
-                             />
+                            source={{ uri: photo }}
+                        />
                     </View>
                 </View>
 
-                <View style={{ flexDirection: "row", borderBottomWidth: 0.3, marginTop: 10, padding: 10 }}>
+                <View style={styles.starstyle}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate(navigationStrings.STARRED_TASK)}
-                        activeOpacity={0.5} style={{ flex: 0.3 }}>
-                        <Image style={styles.starstyle} source={imagePath.starred_star} />
+                        activeOpacity={0.5}
+                        style={{ flex: 0.3 }}>
+                        <Image style={styles.starsimg} source={imagePath.starred_star} />
                     </TouchableOpacity>
 
                     <TouchableOpacity
 
                         activeOpacity={0.5}
                         style={{ flex: 0.3 }}>
-                        <Text style={{ textAlign: "center" }}>My Tasks</Text>
+                        <Text style={styles.mytasktxt}>My Tasks</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -57,25 +56,5 @@ const Home = ({ navigation }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container:
-        { flexDirection: "row", justifyContent: "space-between", marginTop: 10 },
-    headertxt:
-        { fontSize: textScale(16), textAlign: "center", marginTop: 5 },
-    imgtxt:
-        { height: width / 12, width: width / 12, marginRight: 20, borderRadius: width, }
-        ,
-    bottomstyle:
-    {
-        position: "absolute", bottom: -34,
-        backgroundColor: colors.dimgrey,
-        padding: 15,
-        width: width,
-    },
-    starstyle:
-        { marginHorizontal: 10 }
-
-
-});
 
 export default Home;
