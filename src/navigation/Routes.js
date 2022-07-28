@@ -11,14 +11,14 @@ const Stack = createNativeStackNavigator();
 const Routes = () => {
 
     const userData = useSelector(state => state?.userStatus?.userData);
-    console.log((!!userData), "userdata +++++++")
+    // console.log((userData), "userdata +++++++")
     const {intro} = useSelector((state) => state);
     // console.log(intro,"intro+++")
      const appIntro = intro.appIntroData;
      console.log(appIntro,"app intro is+++")
     return (
         <NavigationContainer>
-            {!!appIntro ? IntroStack(Stack) : !!(userData || userData?.token) ? MainStack(Stack)
+            {!!appIntro ? IntroStack(Stack) : !!(userData) ? MainStack(Stack)
                 : AuthStack(Stack)}
         </NavigationContainer>
 

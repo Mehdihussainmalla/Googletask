@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import { styles } from './style';
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { showMessage } from 'react-native-flash-message';
 import auth from "@react-native-firebase/auth"
 import actions from '../../redux/actions';
@@ -21,10 +21,9 @@ const Welcome = () => {
     const googleLogin = async () => {
         const credentails = await GoogleSignin.signIn();
         const idToken = credentails.idToken;
-        console.log(idToken, "user is+++++++")
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-        console.log(googleCredential, "google crende+++")
         let data = await auth().signInWithCredential(googleCredential);
+        // console.log(data,"dataaa++++++++");
         try {
             actions.loginData(data)
 

@@ -11,13 +11,11 @@ import { getItem, getLogin, setLogin } from './src/utils/utils';
 const App = () => {
   useEffect(() => {
     getLogin().then((res) => {
-      console.log(res, "resssss")
+      // console.log(res, "resssss")
       actions.loginData(res)
     })
-
-
     getItem('intro').then((res) => {
-      console.log(res, "getItem>>>res")
+      // console.log(res, "getItem>>>res")
       if (res == null) {
         actions.Intro(true)
 

@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: moderateScale(5)
     },
-    imgtxt:
+    imgstyle:
     {
         height: width / moderateScale(12),
         width: width / moderateScale(12),
@@ -32,14 +32,15 @@ export const styles = StyleSheet.create({
     },
     starsimg:
     {
-        marginHorizontal: moderateScale(10)
+        marginHorizontal: moderateScale(10),
+        bottom:moderateScale(8)
     },
     starstyle:
     {
         flexDirection: "row",
         borderBottomWidth: moderateScale(0.3),
         marginTop: moderateScale(10),
-        padding: moderateScale(10)
+        padding: moderateScale(1)
     },
     mytasktxt:
     {

@@ -194,7 +194,7 @@ export async function clearLoginUser() {
 //.......................//
 export async function setLogin(data) {
     data = JSON.stringify(data);
-      console.log(data,"data >>>>>>>>")
+    //   console.log(data,"data >>>>>>>>")
     return AsyncStorage.setItem('userData', data);
 }
 

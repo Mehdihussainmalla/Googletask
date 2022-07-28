@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
                     </View>
                     <View style={{ flex: 0.1 }}>
                         <Image
-                            style={styles.imgtxt}
+                            style={styles.imgstyle}
                             source={{ uri: photo }}
                         />
                     </View>
